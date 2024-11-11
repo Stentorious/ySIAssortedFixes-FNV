@@ -1,0 +1,7 @@
+<_y>
+	<copy src="IM_RepairButton" trait="y"/>
+	<add>
+		<copy src="IM_RepairButton" trait="height"/>
+		<onlyif src="IM_RepairButton" trait="visible"/>
+	</add>
+</_y>

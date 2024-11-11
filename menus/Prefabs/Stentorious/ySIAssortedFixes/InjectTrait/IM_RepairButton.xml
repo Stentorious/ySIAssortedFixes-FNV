@@ -1,0 +1,12 @@
+<_y>
+	<copy src="sibling(IM_DropButton)" trait="y"/>
+	<add>
+		<copy src="sibling(IM_DropButton)" trait="height"/>
+		<onlyif src="sibling(IM_DropButton)" trait="visible"/>
+	</add>
+</_y>
+
+<visible>
+	<copy src="IM_Tabline" trait="_CurrentTab"/> <lte> 1 </lte>
+	<and> <copy src="IM_ItemIcon" trait="visible" /> </and>
+</visible>

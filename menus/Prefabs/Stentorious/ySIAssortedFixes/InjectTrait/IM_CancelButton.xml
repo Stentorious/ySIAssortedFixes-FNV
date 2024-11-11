@@ -1,0 +1,7 @@
+<_y>
+	<copy src="IM_HotkeyButton" trait="y"/>
+	<add>
+		<copy src="IM_HotkeyButton" trait="height"/>
+		<onlyif src="IM_HotkeyButton" trait="visible"/>
+	</add>
+</_y>

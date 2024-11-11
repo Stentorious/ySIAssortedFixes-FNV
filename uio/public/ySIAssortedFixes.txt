@@ -1,0 +1,15 @@
+Stentorious\ySIAssortedFixes\InjectTrait\IM_ButtonRect.xml::InventoryMenu::IM_ButtonRect
+true
+Stentorious\ySIAssortedFixes\InjectTrait\IM_EquipButton.xml::InventoryMenu::IM_EquipButton
+true
+Stentorious\ySIAssortedFixes\InjectTrait\IM_DropButton.xml::InventoryMenu::IM_DropButton
+true
+Stentorious\ySIAssortedFixes\InjectTrait\IM_RepairButton.xml::InventoryMenu::IM_RepairButton
+true
+Stentorious\ySIAssortedFixes\InjectTrait\IM_HotkeyButton.xml::InventoryMenu::IM_HotkeyButton
+!#VUI+\hudcenteredtext.xml
+true
+Stentorious\ySIAssortedFixes\InjectTrait\IM_ModButton.xml::InventoryMenu::IM_ModButton
+true
+Stentorious\ySIAssortedFixes\InjectTrait\IM_CancelButton.xml::InventoryMenu::IM_CancelButton
+true

@@ -1,0 +1,12 @@
+<visible>
+	<copy src="sibling(IM_EquipButton)" trait="visible"/>
+	<and> <copy src="IM_Tabline" trait="_CurrentTab"/> <lte> 2 </lte> </and>
+</visible>
+
+<_y>
+	<copy src="IM_ModButton" trait="y"/>
+	<add>
+		<copy src="IM_ModButton" trait="height"/>
+		<onlyif src="IM_ModButton" trait="visible"/>
+	</add>
+</_y>
