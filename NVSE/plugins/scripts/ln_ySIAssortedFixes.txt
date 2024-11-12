@@ -1,10 +1,12 @@
-; ySI - Assorted Fixes 1.1 - Stentorious
+; ySI - Assorted Fixes - Stentorious
 
-if eval FileExists "menus/ySI/ySI.xml"
-	
-	if Goo1.AuxVarGetFlt "*ySIFixes" != 1
-	
-		if eval FileExists "textures/VUIE/Brackets/Bracket.dds"
+if eval FileExists "menus\ySI\ySI.xml"
+
+	if Goo1.AuxVarGetFlt "*ySIFixes_Init" != 1
+		Goo1.AuxVarSetFlt "*ySIFixes_Init" 1
+
+		; Vanilla UI Extension support
+		if eval FileExists "textures\VUIE\Brackets\Bracket.dds"
 			CallAfterFrames 1 (begin function {}
 				if eval GetUIFloatAlt "HUDMainMenu\_MUX" != -999
 					SetUIFloatAlt "HUDMainMenu\ySI\_ySISpaceUp" 1
@@ -16,25 +18,33 @@ if eval FileExists "menus/ySI/ySI.xml"
 				endif
 			end)
 		endif
-		
+
+		; DarNified UI categories fix
 		if eval IsModLoaded "DarNifiedUINV.esp"
-			SetOnMenuOpenEventHandler (begin function {int stL1}
-				ClickMenuButton "InventoryMenu/GLOW_BRANCH/IM_MainRect/IM_ButtonRect/IM_CancelButton"
-				SetScriptDisabled (GFFM "DarNifiedUINV.esp" "4000") 1
-			end) 1 1002
-			SetOnMenuCloseEventHandler (begin function {int stL1}
-				SetScriptDisabled (GFFM "DarNifiedUINV.esp" "4000") 0
-			end) 1 1002		
-		else
-			SetOnMenuOpenEventHandler ({int stL1} => ClickMenuButton "InventoryMenu/GLOW_BRANCH/IM_MainRect/IM_ButtonRect/IM_CancelButton") 1 1002
+			SetOnMenuOpenEventHandler ({int iMenuID} => SetScriptDisabled (GFFM "DarNifiedUINV.esp" "4000") 1) 1 1002
+			SetOnMenuCloseEventHandler ({int iMenuID} => SetScriptDisabled (GFFM "DarNifiedUINV.esp" "4000") 0) 1 1002
 		endif
-		
-		Goo1.AuxVarSetFlt "*ySIFixes" 1
-	
+
+		; Cancel prompt visibility fix
+		SetOnMenuOpenEventHandler ({int iMenuID} => ClickMenuButton "InventoryMenu\GLOW_BRANCH\IM_MainRect\IM_ButtonRect\IM_CancelButton") 1 1002
+
+		; Categories clicksound fix
+		SetOnMenuClickEventHandler (begin function {int iMenuID, int iTileID, string_var sTileName}
+			if eval GetUIFloatAlt ((GetActiveUIComponentFullName) +"\clicksound") == -1
+				PlaySound UIMenuPrevNext 1
+			endif
+		end) 1 "InventoryMenu#30"
+		SetEventHandler "OnButtonDown:8192" (begin function {int iMenuID}
+			if eval GetActiveMenuMode == 1002 && GetUIFloatAlt "InventoryMenu\GLOW_BRANCH\IM_MainRect\IM_ButtonRect\IM_CancelButton\visible" == 1
+				PlaySound UIMenuPrevNext 1
+			endif
+		end)
+
 	endif
-	
+
+	; DarNified UI categories fix
 	if eval IsModLoaded "DarNifiedUINV.esp"
 		SetScriptDisabled (GFFM "DarNifiedUINV.esp" "4000") 0
-	endif	
-	
+	endif
+
 endif

@@ -1,3 +1,4 @@
+<clicksound> UIMenuPrevNext </clicksound>
 <_y>
 	<copy src="IM_HotkeyButton" trait="y"/>
 	<add>
