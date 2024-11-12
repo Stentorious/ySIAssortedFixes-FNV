@@ -1,3 +1,4 @@
+<visible> <copy src="sibling(IM_EquipButton)" trait="visible"/> </visible>
 <_y>
 	<copy src="sibling(IM_EquipButton)" trait="y"/>
 	<add>
@@ -5,5 +6,3 @@
 		<onlyif src="sibling(IM_EquipButton)" trait="visible"/>
 	</add>
 </_y>
-
-<visible> <copy src="sibling(IM_EquipButton)" trait="visible"/> </visible>
