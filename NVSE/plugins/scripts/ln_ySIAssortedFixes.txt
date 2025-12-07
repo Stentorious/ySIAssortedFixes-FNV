@@ -39,7 +39,7 @@ SetOnMenuOpenEventHandler ({int iMenuID} => ClickMenuButton "InventoryMenu\GLOW_
 
 ; Categories clicksound fix
 SetOnMenuClickEventHandler (begin function {int iMenuID, int iTileID, string_var sTileName}
-	if eval GetUIFloatAlt ((GetActiveUIComponentFullName) +"\clicksound") == -1
+	if eval GetUIFloatAlt ((GetActiveUIComponentFullName) + "\clicksound") == -1
 		PlaySound UIMenuPrevNext 1
 	endif
 end) 1 "InventoryMenu#30"
@@ -48,3 +48,15 @@ SetEventHandler "OnButtonDown:8192" (begin function {int iMenuID}
 		PlaySound UIMenuPrevNext 1
 	endif
 end)
+
+; Categories mouseoversound fix
+SetOnMouseoverChangeEventHandler (begin function {int iMenuID}
+	if eval GetUIFloatAlt ((GetActiveUIComponentFullName) + "\id") == 30
+		PlaySound UIPipBoyScroll 1
+	endif
+end) 1 1002
+SetOnKBCTrlUIDeltaHandler 1 (begin function {int iMenuID}
+	if eval GetUIFloatAlt ((GetActiveUIComponentFullName) + "\id") == 30
+		PlaySound UIPipBoyScroll 1
+	endif
+end) 0 1002
